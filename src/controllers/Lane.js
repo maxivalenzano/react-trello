@@ -47,7 +47,7 @@ class Lane extends Component {
   sortCards(cards, sortFunction) {
     if (!cards) return []
     if (!sortFunction) return cards
-    return cards.concat().sort(function (card1, card2) {
+    return cards.concat().sort(function(card1, card2) {
       return sortFunction(card1, card2)
     })
   }
@@ -115,7 +115,7 @@ class Lane extends Component {
     return `TrelloBoard${boardId}Lane`
   }
 
-  onDragEnd = (laneId, result) => {
+  onDragEnd = async (laneId, result) => {
     const {handleDragEnd} = this.props
     const {addedIndex, payload} = result
 
@@ -125,7 +125,9 @@ class Lane extends Component {
 
     if (addedIndex != null) {
       const newCard = {...cloneDeep(payload), laneId}
-      const response = handleDragEnd ? handleDragEnd(payload.id, payload.laneId, laneId, addedIndex, newCard) : true
+      const response = handleDragEnd
+        ? await handleDragEnd(payload.id, payload.laneId, laneId, addedIndex, newCard)
+        : true
       if (response === undefined || !!response) {
         this.props.actions.moveCardAcrossLanes({
           fromLaneId: payload.laneId,
@@ -328,4 +330,7 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(laneActions, dispatch)
 })
 
-export default connect(null, mapDispatchToProps)(Lane)
+export default connect(
+  null,
+  mapDispatchToProps
+)(Lane)
