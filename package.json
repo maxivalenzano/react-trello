@@ -31,7 +31,7 @@
     "board"
   ],
   "author": "RC, Prakash",
-  "license": "MIT",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/maxivalenzano/react-trello/issues"
   },
