@@ -1,6 +1,6 @@
 {
   "name": "@maxivalenzano/react-trello-tupaca",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pluggable components to add a trello like kanban board to your application, customized for specific use",
   "main": "dist/index.js",
   "publishConfig": {
