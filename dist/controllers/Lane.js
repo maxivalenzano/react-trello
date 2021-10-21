@@ -152,6 +152,7 @@ class Lane extends _react.Component {
           laneId
         });
         const response = handleDragEnd ? await handleDragEnd(payload.id, payload.laneId, laneId, addedIndex, newCard) : true;
+        console.log('🚀 ~ LIB react-trello ~ handleDragEnd', response);
 
         if (response === undefined || !!response) {
           this.props.actions.moveCardAcrossLanes({
