@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Pluggable components to add a trello like kanban board to your application, customized for specific use",
   "main": "dist/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist",
     "README"
