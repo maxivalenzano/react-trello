@@ -125,9 +125,7 @@ class Lane extends Component {
 
     if (addedIndex != null) {
       const newCard = {...cloneDeep(payload), laneId}
-      const response = handleDragEnd
-        ? await handleDragEnd(payload.id, payload.laneId, laneId, addedIndex, newCard)
-        : true
+      const response = await handleDragEnd(payload.id, payload.laneId, laneId, addedIndex, newCard)
       if (response === undefined || !!response) {
         this.props.actions.moveCardAcrossLanes({
           fromLaneId: payload.laneId,
